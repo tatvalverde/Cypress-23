@@ -84,8 +84,8 @@ describe('demoQA', ()=> {
     const state = Cypress.$.makeArray($els).filter($el =>$el.innerText == 'NCR')
     return cy.wrap(state)
 }).click();
-
   })
+  
 })
 // #react-select-3-input
 // cy.get('[id^="react-select-3-option-"]').then($els => {
