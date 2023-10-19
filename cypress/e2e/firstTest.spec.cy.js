@@ -85,7 +85,6 @@ describe('demoQA', ()=> {
     return cy.wrap(state)
 }).click();
   })
-  
 })
 // #react-select-3-input
 // cy.get('[id^="react-select-3-option-"]').then($els => {
