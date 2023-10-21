@@ -22,15 +22,15 @@ describe('Fill out Student Registration Form', ()=> {
       cy.get('#currentAddress').type('555 Woodruff Ln.')
       cy.get('#state').click({force: true})
 
-  //     cy.get('[id^="react-select-3-option-"]').then($els => {
-  //     const state = Cypress.$.makeArray($els).filter($el =>$el.innerText == 'NCR')
-  //     return cy.wrap(state)
-  // }).click();
+      cy.get('[id^="react-select-3-option-"]').then($els => {
+      const state = Cypress.$.makeArray($els).filter($el =>$el.innerText == 'NCR')
+      return cy.wrap(state)
+  }).click();
 
-  //   cy.get('[id^="react-select-4-option-"]').then($els => {
-  //     const state = Cypress.$.makeArray($els).filter($el =>$el.innerText == 'Noida')
-  //     return cy.wrap(city)
-  // }).click();
+    cy.get('[id^="react-select-4-option-"]').then($els => {
+      const state = Cypress.$.makeArray($els).filter($el =>$el.innerText == 'Noida')
+      return cy.wrap(city)
+  }).click();
 
   })
 })
