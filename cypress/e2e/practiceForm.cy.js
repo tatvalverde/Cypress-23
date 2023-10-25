@@ -31,15 +31,22 @@ describe('Fill out Student Registration Form', ()=> {
       cy.get('#currentAddress').type('555 Woodruff Ln.')
       cy.get('#state').click({force: true})
 
-  //     cy.get('div#state  .css-1hwfws3').then($els => {
-  //     const state = Cypress.$.makeArray($els).filter($el =>$el.innerText == 'NCR')
-  //     return cy.wrap(state)
-  // }).click();
+      cy.get('#react-select-3-input').click({force: true});
+        cy.get('[id^="react-select-3-option-"]').then($elements => {
+            const state = Cypress.$.makeArray($elements).filter($el => $el.innerText === 'NCR') 
+            return cy.wrap(state)
+        }).click();
 
-  //   cy.get('#stateCity-wrapper > :nth-child(3)').then($els => {
-  //     const state = Cypress.$.makeArray($els).filter($el =>$el.innerText == 'Noida')
-  //     return cy.wrap(city)
-  // }).click()
-      cy.get('button#submit').click();
+        cy.get('#react-select-4-input').click({force: true});
+        cy.get('[id^="react-select-4-option-"]').then($elements => {
+            console.log($elements)
+            const city = Cypress.$.makeArray($elements).filter($el => $el.innerText === 'Delhi') 
+            return cy.wrap(city)
+        }).click({force: true});
+
+        cy.get('#submit').click({force: true});
+        cy.get('#example-modal-sizes-title-lg').should('be.visible').should('have.text', 'Thanks for submitting the form');
+
+        cy.get('#closeLargeModal').click();
   })
 })
