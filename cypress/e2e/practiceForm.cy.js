@@ -2,17 +2,23 @@
 
 describe('Fill out Student Registration Form', ()=> {
 
-  
-    it('', ()=> {
+    beforeEach(function() {
+      cy.fixture('secondReview').then((userInfo)=>{
+        this.allNames = userInfo.formData;
+      })
+    })
+      
+    it('Fill out Student Registration Form: fixtures 1 version', function() {
       cy.visit('https://demoqa.com/automation-practice-form')
-      cy.viewport(1920, 1080)
+      cy.viewport(1980, 1080);
 
       cy.get('#firstName').should('have.text', '')
-      cy.get('#firstName').type('Tatiana').should('have.value', 'Tatiana')
+      cy.get('#firstName').type(this.allNames.firstName).should('have.value', this.allNames.firstName)
 
       cy.get('#lastName').should('have.text', '')
-      cy.get('#lastName').type('Nano').clear().type('Naumova').should('have.value', 'Naumova')
+      cy.get('#lastName').type(this.allNames.lastName).should('have.value', this.allNames.lastName)
 
+    
       cy.get('#userEmail').type('test@gmail.com')
       cy.get('#gender-radio-2').check({force: true}).should('be.checked');
       cy.get('#gender-radio-1').should('not.be.checked');
@@ -29,24 +35,26 @@ describe('Fill out Student Registration Form', ()=> {
       // cy.get('#uploadPicture').selectFile('C:\Cypress 23\cypress\fixtures\cat.jpg')
       cy.get('#uploadPicture').attachFile('cat.jpg')
       cy.get('#currentAddress').type('555 Woodruff Ln.')
-      cy.get('#state').click({force: true})
 
+      cy.get('#state').click({force: true})
       cy.get('#react-select-3-input').click({force: true});
-        cy.get('[id^="react-select-3-option-"]').then($elements => {
+      cy.get('[id^="react-select-3-option-"]').then($elements => {
             const state = Cypress.$.makeArray($elements).filter($el => $el.innerText === 'NCR') 
             return cy.wrap(state)
-        }).click();
+      }).click();
 
-        cy.get('#react-select-4-input').click({force: true});
-        cy.get('[id^="react-select-4-option-"]').then($elements => {
+      cy.get('#city').click({force: true})
+      cy.get('#react-select-4-input').click({force: true});
+      cy.get('[id^="react-select-4-option-"]').then($elements => {
             console.log($elements)
             const city = Cypress.$.makeArray($elements).filter($el => $el.innerText === 'Delhi') 
             return cy.wrap(city)
-        }).click({force: true});
+      }).click({force: true});
 
-        cy.get('#submit').click({force: true});
-        cy.get('#example-modal-sizes-title-lg').should('be.visible').should('have.text', 'Thanks for submitting the form');
+      cy.get('#submit').click({force: true});
+      
+      cy.get('#example-modal-sizes-title-lg').should('be.visible').should('have.text', 'Thanks for submitting the form');
 
-        cy.get('#closeLargeModal').click();
+      cy.get('#closeLargeModal').click();
   })
 })
