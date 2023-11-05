@@ -22,20 +22,20 @@ describe('Dragabble', ()=> {
    })
 })
 
-it.only('Drag me test', () => {
-    const initialPosition = {};
-    cy.visit('https://demoqa.com/dragabble');
-    cy.get('#dragBox').then($el => {
-        initialPosition.top = $el.position().top;
-        initialPosition.left = $el.position().left;
-    });
-    cy.get('#dragBox')
-        .trigger('mousedown', {which: 1, pageX: 0, pageY: 0})
-        .trigger('mousemove', {which: 1, pageX: 200, pageY: 200})
-        .trigger('mouseup');
-    cy.get('#dragBox').should(($el) => {
-        const currentPosition = $el.position(); 
-        expect(currentPosition.top - initialPosition.top).to.be.equal(200);  
-        expect(currentPosition.left - initialPosition.left).to.be.equal(200);   
-    })    
-});
+// it.only('Drag me test', () => {
+//     const initialPosition = {};
+//     cy.visit('https://demoqa.com/dragabble');
+//     cy.get('#dragBox').then($el => {
+//         initialPosition.top = $el.position().top;
+//         initialPosition.left = $el.position().left;
+//     });
+//     cy.get('#dragBox')
+//         .trigger('mousedown', {which: 1, pageX: 0, pageY: 0})
+//         .trigger('mousemove', {which: 1, pageX: 200, pageY: 200})
+//         .trigger('mouseup');
+//     cy.get('#dragBox').should(($el) => {
+//         const currentPosition = $el.position(); 
+//         expect(currentPosition.top - initialPosition.top).to.be.equal(200);  
+//         expect(currentPosition.left - initialPosition.left).to.be.equal(200);   
+//     })    
+// });

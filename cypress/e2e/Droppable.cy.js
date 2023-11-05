@@ -2,7 +2,7 @@
 
 
 describe('Droppabble', ()=> {
-    it.only('Trigger method', () => {
+    it('Trigger method', () => {
         cy.viewport(1920, 1080)
     cy.visit('https://demoqa.com/droppable')
 
