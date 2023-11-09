@@ -36,9 +36,25 @@ describe('Search bar', ()=>{
     cy.visit('https://getyournest.com/search')
     cy.get('[data-testid="search-bar"]').type('P')
     cy.get('p.font-nunito.text-\[16px\].htmlContentSub.font-semibold.text-cgyn-text-primary')
-    .then($elements => {
-        const city = Cypress.$.makeArray($elements).filter($el => $el.innerText === 'P') 
+    .then($els => {
+        const city = Cypress.$.makeArray($els).filter($el => $el.innerText === 'P') 
         return cy.wrap(city)
      }).click({force: true});
-   })
+    })
+
+   it('Test case #4 Verify if user enters only special chars the dropdown with message “Sorry, no search results found. Please try another search: address, city or zip code.” appears', ()=>{
+    cy.visit('https://getyournest.com/search')
+    cy.get('[data-testid="search-bar"]').type('@')
+    cy.get('.font-nunito.text-\[16px\].font-semibold.text-cgyn-text-primary.text-left')
+    .should('have.text', 'Sorry, no search results found. Please try another search: address, city or zip code.')
+
+    })
+})
+
+describe('Chat', ()=>{
+    it('Test case #1 When the user is on the search page the chat window is open', ()=>{
+        cy.visit('https://getyournest.com/search')
+        cy.get('div#modify-container').should('be.visible') 
+        cy.get 
+    })
 })
