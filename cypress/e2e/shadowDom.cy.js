@@ -32,7 +32,7 @@ describe('Shadow DOM', () =>{
         .type(inputData)
         .invoke('val')
         .then((text)=>{
-          expect(text).to.eql(inputData)
+          expect(text).to.eql(inputData);
         })
       })
 })
