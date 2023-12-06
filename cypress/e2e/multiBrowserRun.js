@@ -1,16 +1,18 @@
 const cypress = require('cypress');
 
+const spec = 'cypress/e2e/iframe.spec.cy.j';
+
 cypress.run({
-    spec: 'cypress/e2e/iframe.spec.cy.js',
+    spec,
     browser: 'chrome'
 })
 
 cypress.run({
-    spec: 'cypress/e2e/iframe.spec.cy.js',
+    spec,
     browser: 'edge'
 })
 
 cypress.run({
-    spec: 'cypress/e2e/iframe.spec.cy.js',
+    spec,
     browser: 'electron'
 })
