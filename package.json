@@ -1,5 +1,5 @@
 {
-  "name": "Project Cypress-23",
+  "name": "Project Cypress 23",
   "version": "1.0.0",
   "description": "Just learning tests",
   "main": "index.js",
@@ -7,12 +7,13 @@
     "test": "cypress open",
     "premyscript": "npx cypress run --spec cypress/e2e/iframe.spec.cy.js --browser electron",
     "myscript": "npx cypress run --spec cypress/e2e/iframe.spec.cy.js --browser chrome",
-    "postmyscript": "npx cypress run --spec cypress/e2e/iframe.spec.cy.js --browser edge"
-
+    "postmyscript": "npx cypress run --spec cypress/e2e/iframe.spec.cy.js --browser edge",
+    "myscript:chrome": "npx cypress run --spec cypress/e2e/iframe.spec.cy.js --browser chrome"
   },
   "author": "Tatiana Valverde",
   "devDependencies": {
-    "cypress": "^12.11.0"
+    "cypress": "^12.11.0",
+    "dayjs": "^1.11.10"
   },
   "dependencies": {
     "cypress-file-upload": "^5.0.8"
