@@ -4,7 +4,11 @@
   "description": "Just learning tests",
   "main": "index.js",
   "scripts": {
-    "cy:open": "cypress open"
+    "test": "cypress open",
+    "premyscript": "npx cypress run --spec cypress/e2e/iframe.spec.cy.js --browser electron",
+    "myscript": "npx cypress run --spec cypress/e2e/iframe.spec.cy.js --browser chrome",
+    "postmyscript": "npx cypress run --spec cypress/e2e/iframe.spec.cy.js --browser edge"
+
   },
   "author": "Tatiana Valverde",
   "devDependencies": {
